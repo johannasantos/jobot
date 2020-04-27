@@ -1,19 +1,23 @@
 # Jo Bot
 
-## Requiere
+## Requirements
     
     python 3
     pip
     un bot de telegram
 
-## Bibliotecas para descargar (en un futuro mejorar esto jeje)
+## Install 
 
     $ pip install python-telegram-bot --upgrade
 
-## Uso
+## Getting started
 
-    Clonar el repo
-    Ir a la carpeta bot/datos
-    Copiar el archivo config-ejemplo.yml con el nombre config.yml
-    Una vez copiado, en config.yml poner la token del bot en el campo 'token'
-    Desde la carpeta raíz del repo ejecutar python bot/bot.py
+    - Clonar el repo
+    - Ir a la carpeta bot/datos
+    - Copiar el archivo config-ejemplo.yml con el nombre config.yml
+    - Una vez copiado, en config.yml poner el token del bot en el campo 'token'
+    - Desde la carpeta raíz del repo ejecutar python bot/bot.pyD
+    
+## Documentation
+
+    - python-telegram-bot: https://python-telegram-bot.readthedocs.io/en/stable/
