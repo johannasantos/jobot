@@ -16,7 +16,7 @@
     - Ir a la carpeta bot/datos
     - Copiar el archivo config-ejemplo.yml con el nombre config.yml
     - Una vez copiado, en config.yml poner el token del bot en el campo 'token'
-    - Desde la carpeta raíz del repo ejecutar python bot/bot.pyD
+    - Desde la carpeta raíz del repo ejecutar python bot/bot.py
     
 ## Documentation
 
