@@ -1,0 +1,54 @@
+# ARCHIVO DE CONFIGURACIÓN, ESTO ES MUCHO MUY IMPORTANTE QUE ESTÉ OCULTO
+config.yml
+
+# Pre-requisitos
+*.d
+
+# Archivos de objetos compilados
+*.slo
+*.lo
+*.o
+*.obj
+
+# Cabeceras precompiladas
+*.gch
+*.pch
+
+# Bibliotecas compiladas dinámicamente
+*.so
+*.dylib
+*.dll
+
+# Archivos de módulo de Fortran
+*.mod
+*.smod
+
+# Bibliotecas compiladas estáticamente
+*.lai
+*.la
+*.a
+*.lib
+
+# Ejecutables
+*.exe
+*.out
+*.app
+
+# Python
+__pycache__
+*.pyc
+
+# Látex
+*.aux
+*.log
+*.synctex.gz
+*.toc
+
+# PDF
+*.pdf
+
+# swap de vim
+*.swp
+
+# Archivos de vs code
+.vscode
