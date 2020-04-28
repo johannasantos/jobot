@@ -1,72 +1,76 @@
+from ..base.jobot import jobot
+
 def fibonacci(update, context):
     
-    # Aviso que voy a mandar un mensajillo
+    # Typing...
     context.bot.send_chat_action(chat_id=update.message.chat_id, action='typing')
 
-    # Tomo argumentos que acompañan al comando
+    # Take args
     args = context.args 
 
-    # Si la lista está vacía (no pasaron argumentos)
+    # Empty list (no args)
     if not args:
         error = "Tenés que pasarme un número"
         context.bot.send_message(chat_id=update.message.chat_id, 
                                  text=error,
                                  reply_to_message_id=update.message.message_id)
     
-    # Si pasan más de una palabra
+    # More than a word
     elif len(args) > 1:
         error = "Tenés que pasarme UN SOLO número"
         context.bot.send_message(chat_id=update.message.chat_id,
                                  text=error,
                                  reply_to_message_id=update.message.message_id)
 
-    # Me fijo que sea un número positivo o 0, si es cualquier otra cosa tiro error
+    # Check positive number or 0
     elif not args[0].isdigit():
         error = "Dale che dame un número natural"
         context.bot.send_message(chat_id=update.message.chat_id,
                                  text=error,
                                  reply_to_message_id=update.message.message_id)
 
-    # Si entro acá es porque pasaron una sola palabra, tengo que ver que sea un número
+    # Only one word, check if it is a number
     else:
-        # Ya se que es un número, lo tomo entonces
-        numero = int(args[0])
+        # This is a number, take it 
+        number = int(args[0])
 
-        if numero <= 0:
+        if number <= 0:
             error = "Tiene que ser positivo"
             context.bot.send_message(chat_id=update.message.chat_id,
                                     text=error,
                                     reply_to_message_id=update.message.message_id)
-        elif numero > 19500:
+        elif number > 19500:
             error = "Disculpame pero puedo calcular hasta el 19500 número de fibonacci :("
             context.bot.send_message(chat_id=update.message.chat_id,
                                     text=error,
                                     reply_to_message_id=update.message.message_id)
         else:
             context.bot.send_message(chat_id=update.message.chat_id,
-                                    text=str(fib(numero)),
+                                    text=str(fib(number)),
                                     reply_to_message_id=update.message.message_id)
 
 
 def fib(num):
-    # Los primeros dos números de fibonacci son 1
+    # First two fibonacci numbers 1
     if 1 <= num <= 2:
         return 1
     
-    # Si no, lo calculo usando la fórmula
+    # Else, calculate using the formula
     else:
-        # Tomo los dos últimos valores
-        ultimo = 1
-        ante_ultimo = 1
+        # Last two values
+        last = 1
+        penult = 1
 
-        # Cada iteración es una suma
+        # Every iteration is sum
         for i in range(3, num+1):
-            # El próximo valor de la sucesión es la suma de los dos anteriores
-            proximo = ultimo + ante_ultimo
+            # Next value is the sum between last and penult
+            next_fib = last + penult
 
-            # El anteúltimo pasa a ser el que antes fue el último
-            ante_ultimo = ultimo
-            # Y el último es justamente el último valor calculado
-            ultimo = proximo
+            # Actualizate penult and last
+            penult = last
+            last = next_fib
 
-        return ultimo
+        return last
+
+jobot.add_command("fibonacci", fibonacci,
+                  description="Manda el n-ésimo número de fibonacci")
