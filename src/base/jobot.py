@@ -42,15 +42,15 @@ class Jobot():
 
     def start_bot(self):
         try:
+            logging.log(msg="JOBOT STARTED", level=99)
             # Start polling messages from telegram
-            logging.info("JOBOT STARTED")
             self.updater.start_polling()
-
+            
             self.updater.idle()
 
         # THE DEVL
         except Exception as e:
-            logging.critical("THE BOT HAS FUCKING DEAD")
+            logging.critical("THE BOT IS FUCKING DEAD")
             raise e
 
     def add_command(self, command, function, description=None,
